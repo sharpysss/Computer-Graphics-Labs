@@ -15,10 +15,10 @@ Or download the [zip file](https://github.com/jonshiach/Lab09_Normal_maps/zipbal
 ## Build instructions
 
 1. Download, install and run <a href="https://www.cmake.org" target="_blank">CMake</a>.
-2. In the `Lab09_Normal_maps/` folder create a folder and call it `build/`.
-3. Click on **Browse Source...** next to 'Where is the source code?' and select the `Lab09_Normal_maps/` folder.
-4. Do the same for 'Where to build the binaries?' and select the `Lab09_Normal_maps/build/` folder.
+2. In the **computer-graphics-labs** folder create a folder and call it **build/**.
+3. Click on **Browse Source...** next to 'Where is the source code?' and select the **computer-graphics-labs/** folder.
+4. Do the same for 'Where to build the binaries?' and select the **computer-graphics-labs/build/** folder.
 5. Click **Configure** and select Visual Studio (Windows) or Xcode (macOS) and click **Done**. Once the configuration is complete click **Configure** again.
 6. Click **Generate**.
 
-This will create a Visual Studio or Xcode project file in the `Lab09_Normal_maps/build/` folder. Double click on it to open the project and edit the source code.
+This will create a Visual Studio or Xcode project file in the **computer-graphics-labs/build/** folder. Double click on it to open the project and edit the source code.
