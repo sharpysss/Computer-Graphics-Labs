@@ -7,7 +7,7 @@ These are the template files for the Computer Graphics module taught at the Manc
 Install git if you haven't already done so ([instructions](https://github.com/git-guides/install-git)) and clone the repository using the command prompt/terminal
 
 ```
-git clone https://github.com/jonshiach/Lab09_Normal_maps.git
+git clone https://github.com/jonshiach/computer-graphics-labs.git
 ```
 
 Or download the [zip file](https://github.com/jonshiach/Lab09_Normal_maps/zipball/master/), extract the files and rename the root folder `Lab09_Normal_maps/`.
