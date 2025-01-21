@@ -10,11 +10,6 @@
 
 // Function prototypes
 void keyboardInput(GLFWwindow *window);
-void mouseInput(GLFWwindow *window);
-
-// Frame timers
-float previousTime = 0.0f;  // time of previous iteration of the loop
-float deltaTime    = 0.0f;  // time elapsed since the previous frame
 
 // Create camera object
 Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f));
@@ -211,8 +206,7 @@ int main( void )
     unsigned int EBO;
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices,
-                 GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     
     // Compile shader program
     unsigned int shaderID;
@@ -258,14 +252,8 @@ int main( void )
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
-        // Update timer
-        float time   = glfwGetTime();
-        deltaTime    = time - previousTime;
-        previousTime = time;
-        
         // Get inputs
         keyboardInput(window);
-        mouseInput(window);
         
         // Clear the window
         glClearColor(0.2f, 0.2f, 0.2f, 0.0f);
@@ -295,16 +283,15 @@ int main( void )
             glm::mat4 model     = translate * rotate * scale;
 
             // Calculate the MVP matrix
-            glm::mat4 mvp = camera.projection * camera.view * model;
+            glm::mat4 MVP = camera.projection * camera.view * model;
 
             // Send MVP matrix to the vertex shader
-            unsigned int mvpID = glGetUniformLocation(shaderID, "mvp");
-            glUniformMatrix4fv(mvpID, 1, GL_FALSE, &mvp[0][0]);
+            unsigned int MVPID = glGetUniformLocation(shaderID, "MVP");
+            glUniformMatrix4fv(MVPID, 1, GL_FALSE, &MVP[0][0]);
 
             // Draw the triangles
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-            glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int),
-                           GL_UNSIGNED_INT, 0);
+            glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(unsigned int), GL_UNSIGNED_INT, 0);
         }
         
         glDisableVertexAttribArray(0);
@@ -331,35 +318,4 @@ void keyboardInput(GLFWwindow *window)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
-    
-    // Move the camera using WSAD keys
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.eye += 5.0f * deltaTime * camera.front;
-
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.eye -= 5.0f * deltaTime * camera.front;
-
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.eye -= 5.0f * deltaTime * camera.right;
-
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.eye += 5.0f * deltaTime * camera.right;
-    
-//    // Exercise 1 - limit the height of the camera to 0
-//    camera.eye[1] = 0.0f;
-}
-
-void mouseInput(GLFWwindow *window)
-{
-    // Get mouse cursor position and reset to centre
-    double xPos, yPos;
-    glfwGetCursorPos(window, &xPos, &yPos);
-    glfwSetCursorPos(window, 1024 / 2, 768 / 2);
-    
-    // Update yaw and pitch angles
-    camera.yaw   += 0.005f * float(xPos - 1024 / 2);
-    camera.pitch += 0.005f * float(768 / 2 - yPos);
-    
-    // Calculate camera vectors from the yaw and pitch angles
-    camera.calculateCameraVectors();
 }

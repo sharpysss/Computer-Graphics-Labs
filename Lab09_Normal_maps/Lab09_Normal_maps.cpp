@@ -104,8 +104,6 @@ int main( void )
     
     // Load the textures
     teapot.addTexture("../assets/blue.bmp", "diffuse");
-    teapot.addTexture("../assets/diamond_normal.png", "normal");
-    teapot.addTexture("../assets/neutral_specular.png", "specular");
     
     // Define teapot object lighting properties
     teapot.ka = 0.2f;
@@ -159,26 +157,6 @@ int main( void )
         objects.push_back(object);
     }
     
-    // Load a 2D plane model for the floor and add textures
-    Model floor("../assets/plane.obj");
-    floor.addTexture("../assets/stones_diffuse.png", "diffuse");
-    floor.addTexture("../assets/stones_normal.png", "normal");
-    floor.addTexture("../assets/stones_specular.png", "specular");
-    
-    // Define floor light properties
-    floor.ka = 0.2f;
-    floor.kd = 0.7f;
-    floor.ks = 0.5f;
-    floor.Ns = 20.0f;
-    
-    // Add floor model to objects vector
-    object.position = glm::vec3(0.0f, -0.6f, 0.0f);
-    object.scale    = glm::vec3(1.0f, 1.0f, 1.0f);
-    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-    object.angle    = 0.0f;
-    object.name     = "floor";
-    objects.push_back(object);
-    
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
@@ -205,9 +183,6 @@ int main( void )
         // Send light source properties to the shader
         lightSources.toShader(shaderID, camera.view);
         
-        // Send view matrix to the shader
-        glUniformMatrix4fv(glGetUniformLocation(shaderID, "V"), 1, GL_FALSE, &camera.view[0][0]);
-        
         // Loop through objects
         for (unsigned int i = 0; i < static_cast<unsigned int>(objects.size()); i++)
         {
@@ -226,8 +201,6 @@ int main( void )
             // Draw the model
             if (objects[i].name == "teapot")
                 teapot.draw(shaderID);
-            if (objects[i].name == "floor")
-                floor.draw(shaderID);
         }
         
         // Draw light sources

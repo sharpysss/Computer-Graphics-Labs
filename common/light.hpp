@@ -1,6 +1,6 @@
 #pragma once
 
-#include <common/maths.hpp>
+#include <external/glm-0.9.7.1/glm/gtc/matrix_transform.hpp>
 #include <common/model.hpp>
 
 struct LightSource
@@ -22,14 +22,14 @@ public:
     unsigned int lightShaderID;
     
     // Add lightSources
-    void addPointLight(const glm::vec3 position,  const glm::vec3 colour,
-                       const float constant,      const float linear,
-                       const float quadratic);
-    void addSpotLight (const glm::vec3 position,  const glm::vec3 direction,
-                       const glm::vec3 colour,    const float constant,
-                       const float linear,        const float quadratic,
-                       const float cosPhi);
-    void addDirectionalLight  (const glm::vec3 direction, const glm::vec3 colour);
+    void addPointLight      (const glm::vec3 position,  const glm::vec3 colour,
+                             const float constant,      const float linear,
+                             const float quadratic);
+    void addSpotLight       (const glm::vec3 position,  const glm::vec3 direction,
+                             const glm::vec3 colour,    const float constant,
+                             const float linear,        const float quadratic,
+                             const float cosPhi);
+    void addDirectionalLight(const glm::vec3 direction, const glm::vec3 colour);
     
     // Send to shader
     void toShader(unsigned int shaderID, glm::mat4 view);

@@ -1,8 +1,8 @@
 #include <common/light.hpp>
 
 void Light::addPointLight(const glm::vec3 position,  const glm::vec3 colour,
-                   const float constant,      const float linear,
-                   const float quadratic)
+                          const float constant,      const float linear,
+                          const float quadratic)
 {
     LightSource light;
     light.position  = position;
@@ -71,8 +71,8 @@ void Light::draw(unsigned int shaderID, glm::mat4 view, glm::mat4 projection, Mo
             continue;
         
         // Calculate model matrix
-        glm::mat4 translate = Maths::translate(lightSources[i].position);
-        glm::mat4 scale     = Maths::scale(glm::vec3(0.1f));
+        glm::mat4 translate = glm::translate(glm::mat4(1.0f), lightSources[i].position);
+        glm::mat4 scale     = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
         glm::mat4 model     = translate * scale;
         
         // Send the MVP and MV matrices to the vertex shader

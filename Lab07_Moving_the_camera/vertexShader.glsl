@@ -8,12 +8,12 @@ layout(location = 1) in vec2 uv;
 out vec2 UV;
 
 // Uniforms
-uniform mat4 mvp;
+uniform mat4 MVP;
 
 void main()
 {
     // Output vertex position
-    gl_Position = mvp * vec4(position, 1.0);
+    gl_Position = MVP * vec4(position, 1.0);
     
     // Output vertex colour
     UV = uv;

@@ -1,4 +1,4 @@
-	# CMake entry point
+# CMake entry point
 cmake_minimum_required (VERSION 3.0)
 project (Computer_Graphics_Labs)
 
@@ -79,9 +79,6 @@ set_target_properties(Lab03_Textures PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BU
 # Lab04
 add_executable(Lab04_Vectors_and_matrices
 	Lab04_Vectors_and_matrices/Lab04_Vectors_and_matrices.cpp
-
-	common/maths.hpp
-	common/maths.cpp
 )
 target_link_libraries(Lab04_Vectors_and_matrices
 	${ALL_LIBS}
@@ -96,12 +93,12 @@ add_executable(Lab05_Transformations
 	Lab05_Transformations/Lab05_Transformations.cpp
 	Lab05_Transformations/vertexShader.glsl
 	Lab05_Transformations/fragmentShader.glsl
-	Lab05_Transformations/maths.hpp
-	Lab05_Transformations/maths.cpp
 
 	common/shader.hpp
 	common/texture.hpp
 	common/stb_image.hpp
+	common/maths.hpp
+	common/maths.cpp
 )
 target_link_libraries(Lab05_Transformations
 	${ALL_LIBS}
