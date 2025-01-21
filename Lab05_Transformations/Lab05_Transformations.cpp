@@ -5,7 +5,7 @@
 
 #include <common/shader.hpp>
 #include <common/texture.hpp>
-#include <Lab05_Transformations/maths.hpp>
+#include <common/maths.hpp>
 
 // Function prototypes
 void keyboardInput(GLFWwindow *window);
