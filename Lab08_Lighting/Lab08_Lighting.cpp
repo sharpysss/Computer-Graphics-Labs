@@ -142,10 +142,6 @@ int main( void )
         // Send MVP matrix to the vertex shader
         glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
         
-        // Send MV matrix to the vertex shader
-        glm::mat4 MV = camera.view * model;
-        glUniformMatrix4fv(glGetUniformLocation(shaderID, "MV"), 1, GL_FALSE, &MV[0][0]);
-        
         // Draw teapot
         teapot.draw(shaderID);
         
