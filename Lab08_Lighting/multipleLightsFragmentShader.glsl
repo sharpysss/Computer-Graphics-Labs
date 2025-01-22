@@ -41,11 +41,9 @@ void main ()
         // Determine light properties for current light source
         vec3 lightPosition  = lightSources[i].position;
         vec3 lightColour    = lightSources[i].colour;
-        vec3 lightDirection = lightSources[i].direction;
         float constant      = lightSources[i].constant;
         float linear        = lightSources[i].linear;
         float quadratic     = lightSources[i].quadratic;
-        float cosPhi        = lightSources[i].cosPhi;
         
         // Calculate point light
         if (lightSources[i].type == 1)
