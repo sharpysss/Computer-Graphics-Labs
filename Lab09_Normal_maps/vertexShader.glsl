@@ -1,5 +1,7 @@
 #version 330 core
 
+# define maxLights 10
+
 // Inputs
 layout(location = 0) in vec3 position;
 layout(location = 1) in vec2 uv;

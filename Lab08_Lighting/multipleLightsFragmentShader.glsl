@@ -30,8 +30,7 @@ uniform float Ns;
 uniform Light lightSources[maxLights];
 
 // Function prototypes
-vec3 pointLight(vec3 lightPosition, vec3 lightColour, 
-                float constant, float linear, float quadratic);
+vec3 pointLight(vec3 lightPosition, vec3 lightColour, float constant, float linear, float quadratic);
 
 void main ()
 {
@@ -47,14 +46,12 @@ void main ()
         
         // Calculate point light
         if (lightSources[i].type == 1)
-            fragmentColour += pointLight(lightPosition, lightColour,
-                                         constant, linear, quadratic);
+            fragmentColour += pointLight(lightPosition, lightColour, constant, linear, quadratic);
     }
 }
 
 // Calculate point light
-vec3 pointLight(vec3 lightPosition, vec3 lightColour, 
-                float constant, float linear, float quadratic)
+vec3 pointLight(vec3 lightPosition, vec3 lightColour, float constant, float linear, float quadratic)
 {
     // Object colour
     vec3 objectColour = vec3(texture(diffuseMap, UV));

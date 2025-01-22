@@ -20,7 +20,7 @@ float previousTime = 0.0f;  // time of previous iteration of the loop
 float deltaTime    = 0.0f;  // time elapsed since the previous frame
 
 // Create camera object
-Camera camera(glm::vec3(0.0f, 0.0f, 4.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+Camera camera(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f));
 
 // Object struct
 struct Object
