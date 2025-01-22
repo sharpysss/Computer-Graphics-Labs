@@ -77,11 +77,6 @@ int main( void )
     // Ensure we can capture keyboard inputs
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     
-    // Capture mouse inputs
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    glfwPollEvents();
-    glfwSetCursorPos(window, 1024 / 2, 768 / 2);
-    
     // Define cube object
     // Define vertices
     const float vertices[] = {
