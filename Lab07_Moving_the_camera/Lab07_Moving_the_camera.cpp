@@ -270,7 +270,6 @@ int main( void )
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
         
         // Calculate view and projection matrices
-        camera.target = camera.eye + camera.front;
         camera.calculateMatrices();
         
         // Loop through objects and draw each one
