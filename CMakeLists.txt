@@ -11,6 +11,12 @@ endif()
 # Compile external dependencies 
 add_subdirectory (external)
 
+# On Visual 2005 and above, this module can set the debug working directory
+cmake_policy(SET CMP0026 OLD)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/external/rpavlik-cmake-modules-fe2273")
+include(CreateLaunchers)
+include(MSVCMultipleProcessCompile) # /MP
+
 include_directories(
 	external/glfw-3.1.2/include/
 	external/glew-1.13.0/include/
@@ -56,6 +62,8 @@ target_link_libraries(Lab02_Basic_shapes
 
 # Xcode and Visual working directories
 set_target_properties(Lab02_Basic_shapes PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab02_Basic_shapes/")
+create_target_launcher(Lab02_Basic_shapes WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab02_Basic_shapes/")
+create_default_target_launcher(Lab02_Basic_shapes WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab02_Basic_shapes/") # tut 1 is not the default or people would complain that tut 2 doesn't work
 
 # ==============================================================================
 # Lab03
@@ -74,6 +82,7 @@ target_link_libraries(Lab03_Textures
 
 # Xcode and Visual working directories
 set_target_properties(Lab03_Textures PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab03_Textures/")
+create_target_launcher(Lab03_Textures WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab03_Textures/")
 
 # ==============================================================================
 # Lab04
@@ -86,6 +95,7 @@ target_link_libraries(Lab04_Vectors_and_matrices
 
 # Xcode and Visual working directories
 set_target_properties(Lab04_Vectors_and_matrices PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab04_Vectors_and_matrices/")
+create_target_launcher(Lab04_Vectors_and_matrices WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab04_Vectors_and_matrices/")
 
 # ==============================================================================
 # Lab05
@@ -106,6 +116,7 @@ target_link_libraries(Lab05_Transformations
 
 # Xcode and Visual working directories
 set_target_properties(Lab05_Transformations PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab05_Transformations/")
+create_target_launcher(Lab05_Transformations WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab05_Transformations/")
 
 # ==============================================================================
 # Lab06
@@ -128,6 +139,7 @@ target_link_libraries(Lab06_3D_worlds
 
 # Xcode and Visual working directories
 set_target_properties(Lab06_3D_worlds PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab06_3D_worlds/")
+create_target_launcher(Lab06_3D_worlds WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab06_3D_worlds/")
 
 # ==============================================================================
 # Lab07
@@ -150,6 +162,7 @@ target_link_libraries(Lab07_Moving_the_camera
 
 # Xcode and Visual working directories
 set_target_properties(Lab07_Moving_the_camera PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab07_Moving_the_camera/")
+create_target_launcher(Lab07_Moving_the_camera WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab07_Moving_the_camera/")
 
 
 # ==============================================================================
@@ -178,6 +191,7 @@ target_link_libraries(Lab08_Lighting
 
 # Xcode and Visual working directories
 set_target_properties(Lab08_Lighting PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab08_Lighting/")
+create_target_launcher(Lab08_Lighting WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab08_Lighting/")
 
 # ==============================================================================
 # Lab09
@@ -206,6 +220,7 @@ target_link_libraries(Lab09_Normal_maps
 
 # Xcode and Visual working directories
 set_target_properties(Lab09_Normal_maps PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab09_Normal_maps/")
+create_target_launcher(Lab09_Normal_maps WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab09_Normal_maps/")
 
 # ==============================================================================
 # Lab10
@@ -234,6 +249,7 @@ target_link_libraries(Lab10_Quaternions
 
 # Xcode and Visual working directories
 set_target_properties(Lab10_Quaternions PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Lab10_Quaternions/")
+create_target_launcher(Lab10_Quaternions WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Lab10_Quaternions/")
 
 # ==============================================================================
 if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
