@@ -42,6 +42,10 @@ add_definitions(
 # Lab01
 add_executable(Lab01_Intro_to_c++
 	Lab01_Intro_to_c++/Lab01_Intro_to_c++.cpp
+	Lab01_Intro_to_c++/Car.cpp
+	Lab01_Intro_to_c++/Lar.hpp
+	Lab01_Intro_to_c++/Student.cpp
+	Lab01_Intro_to_c++/Student.hpp
 )
 target_link_libraries(Lab01_Intro_to_c++
 	${ALL_LIBS}
