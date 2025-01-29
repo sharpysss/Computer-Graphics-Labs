@@ -43,7 +43,7 @@ add_definitions(
 add_executable(Lab01_Intro_to_c++
 	Lab01_Intro_to_c++/Lab01_Intro_to_c++.cpp
 	Lab01_Intro_to_c++/Car.cpp
-	Lab01_Intro_to_c++/Lar.hpp
+	Lab01_Intro_to_c++/Car.hpp
 	Lab01_Intro_to_c++/Student.cpp
 	Lab01_Intro_to_c++/Student.hpp
 )
