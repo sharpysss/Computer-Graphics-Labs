@@ -61,21 +61,17 @@ int main( void )
 
     // Define vertices
     static const float vertices[] = {
-        -0.9f, -0.5f, 0.0f,   // triangle 1
-        -0.1f, -0.5f, 0.0f,
-        -0.5f,  0.5f, 0.0f,
-         0.1f, -0.5f, 0.0f,   // triangle 2
-         0.9f, -0.5f, 0.0f,
-         0.5f,  0.5f, 0.0f
+       - 0.5f, -0.4f, 0.0f,   // triangle 1
+      - 0.5f, 0.4f,  0.0f,
+      0.5f,  0.0f, 0.0f,
+       
     };
     // Define vertex colours
     static const float colours[] = {
         1.0f, 0.0f, 0.0f,    // triangle 1 (red)
         1.0f, 0.0f, 0.0f,
         1.0f, 0.0f, 0.0f,
-        0.0f, 0.0f, 1.0f,    // triangle 2 (blue)
-        0.0f, 0.0f, 1.0f,
-        0.0f, 0.0f, 1.0f,
+     
     };
     // Create colour buffer
     unsigned int colourBuffer;
