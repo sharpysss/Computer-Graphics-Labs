@@ -1,10 +1,14 @@
 #version 330 core
 
-in vec3 fragmentColour;
+//Input
+in vec2 UV;
+//output
 
 out vec3 colour;
 
+//Uniforms
+uniform sampler2D textureMap;
 void main()
 {
-    colour = fragmentColour;
+    colour = vec3(texture(textureMap, UV));
 }
