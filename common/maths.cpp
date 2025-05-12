@@ -1,4 +1,3 @@
-
 #include <common/maths.hpp>
 
 glm::mat4 Maths::translate(const glm::vec3& v)

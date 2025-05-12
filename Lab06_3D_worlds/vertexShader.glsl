@@ -7,11 +7,14 @@ layout(location = 1) in vec2 uv;
 // Outputs
 out vec2 UV;
 
+// Uniforms
+uniform mat4 MVP;
+
 void main()
 {
     // Output vertex position
-    gl_Position = vec4(position, 1.0);
+    gl_Position = MVP * vec4(position, 1.0);
     
-    // Output texture co-ordinates
+    // Output texture coordinates
     UV = uv;
 }
