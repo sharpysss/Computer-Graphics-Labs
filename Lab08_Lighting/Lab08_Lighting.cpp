@@ -116,7 +116,7 @@ int main( void )
  /*   glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);*/
     
    
-    teapot.ka = 0.2f;
+    teapot.ka = 0.9f;
     teapot.kd = 0.7f;
     teapot.ks = 1.0f;
     teapot.Ns = 20.0f;
