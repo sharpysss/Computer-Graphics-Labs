@@ -99,19 +99,17 @@ int main( void )
     glUseProgram(shaderID);
     
     // Load models
-    Model teapot("../assets/teapot.obj");
+    Model basketball("../assets/basketball.obj");
     Model sphere("../assets/sphere.obj");
 
 
     // Load the textures
-    teapot.addTexture("../assets/blue.bmp", "diffuse");
-    teapot.addTexture("../assets/diamond_normal.png", "normal");
-    teapot.addTexture("../assets/neutral_specular.png", "specular");
+
     // Define teapot object lighting properties
-    teapot.ka = 0.2f;
-    teapot.kd = 0.7f;
-    teapot.ks = 1.0f;
-    teapot.Ns = 20.0f;
+    basketball.ka = 0.2f;
+    basketball.kd = 0.7f;
+    basketball.ks = 1.0f;
+    basketball.Ns = 20.0f;
     
     // Add light sources
     Light lightSources;
@@ -134,7 +132,7 @@ int main( void )
 
     
     // Teapot positions
-    glm::vec3 teapotPositions[] = {
+    glm::vec3 basketballPositions[] = {
         glm::vec3( 0.0f,  0.0f,  0.0f),
         glm::vec3( 2.0f,  5.0f, -10.0f),
         glm::vec3(-3.0f, -2.0f, -3.0f),
@@ -150,38 +148,22 @@ int main( void )
     // Add teapots to objects vector
     std::vector<Object> objects;
     Object object;
-    object.name = "teapot";
+    object.name = "basketball";
     for (unsigned int i = 0 ; i < 10 ; i++)
     {
-        object.position = teapotPositions[i];
+        object.position = basketballPositions[i];
         object.rotation = glm::vec3(1.0f, 1.0f, 1.0f);
         object.scale    = glm::vec3(0.75f, 0.75f, 0.75f);
         object.angle    = Maths::radians(20.0f * i);
         objects.push_back(object);
     }
 
-    // Load a 2D plane model for the floor and add textures
-    Model floor("../assets/plane.obj");
-    floor.addTexture("../assets/stones_diffuse.png", "diffuse");
-    floor.addTexture("../assets/stones_normal.png", "normal");
-    floor.addTexture("../assets/stones_specular.png", "specular");
-    // Define floor light properties
-    floor.ka = 0.2f;
-    floor.kd = 1.0f;
-    floor.ks = 1.0f;
-    floor.Ns = 20.0f;
-
-    // Add floor model to objects vector
-    object.position = glm::vec3(0.0f, -0.85f, 0.0f);
-    object.scale = glm::vec3(1.0f, 1.0f, 1.0f);
-    object.rotation = glm::vec3(0.0f, 1.0f, 0.0f);
-    object.angle = 0.0f;
-    object.name = "floor";
-    objects.push_back(object);
+  
    
     Model wall("../assets/objfence.obj");
- 
-    wall.ka = 0.2f;
+    wall.addTexture("../assets/Fence007A_2K-PNG_Displacement.png", "specular");
+    wall.addTexture("../assets/Fence_color.png", "specular");
+    wall.ka = 1.2f;
     wall.kd = 1.0f;
     wall.ks = 1.0f;
     wall.Ns = 20.0f;
@@ -235,10 +217,10 @@ int main( void )
             glUniformMatrix4fv(glGetUniformLocation(shaderID, "MV"), 1, GL_FALSE, &MV[0][0]);
             
             // Draw the model
-            if (objects[i].name == "teapot")
-                teapot.draw(shaderID);
-            if (objects[i].name == "floor")
-                floor.draw(shaderID);
+            if (objects[i].name == "basketball")
+                basketball.draw(shaderID);
+            
+
             if (objects[i].name == "wall")
                 wall.draw(shaderID);
         }
@@ -252,7 +234,7 @@ int main( void )
     }
     
     // Cleanup
-    teapot.deleteBuffers();
+    basketball.deleteBuffers();
     glDeleteProgram(shaderID);
     
     // Close OpenGL window and terminate GLFW
