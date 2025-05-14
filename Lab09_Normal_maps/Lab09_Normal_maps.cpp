@@ -101,7 +101,7 @@ int main( void )
     // Load models
     Model teapot("../assets/teapot.obj");
     Model sphere("../assets/sphere.obj");
-    
+
 
     // Load the textures
     teapot.addTexture("../assets/blue.bmp", "diffuse");
@@ -131,6 +131,7 @@ int main( void )
     
     lightSources.addDirectionalLight(glm::vec3(1.0f, -1.0f, 0.0f),  // direction
                                      glm::vec3(1.0f, 1.0f, 0.0f));  // colour
+
     
     // Teapot positions
     glm::vec3 teapotPositions[] = {
@@ -177,7 +178,21 @@ int main( void )
     object.angle = 0.0f;
     object.name = "floor";
     objects.push_back(object);
-    
+   
+    Model wall("../assets/objfence.obj");
+ 
+    wall.ka = 0.2f;
+    wall.kd = 1.0f;
+    wall.ks = 1.0f;
+    wall.Ns = 20.0f;
+
+    object.position = glm::vec3(0.0f, 4.0f, -5.0f);
+    object.scale = glm::vec3(2.0f, 1.0f, 2.0f);
+    object.rotation = glm::vec3(90.0f, 1.0f, 90.0f);
+    object.angle = 0.0f;
+    object.name = "wall";
+    objects.push_back(object);
+   
     // Render loop
     while (!glfwWindowShouldClose(window))
     {
@@ -224,6 +239,8 @@ int main( void )
                 teapot.draw(shaderID);
             if (objects[i].name == "floor")
                 floor.draw(shaderID);
+            if (objects[i].name == "wall")
+                wall.draw(shaderID);
         }
         
         // Draw light sources
