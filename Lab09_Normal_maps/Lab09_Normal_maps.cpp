@@ -103,13 +103,7 @@ int main( void )
     
  
     Light lightSources;
-    lightSources.addPointLight(glm::vec3(2.0f, 2.0f, 2.0f),         
-                               glm::vec3(1.0f, 1.0f, 1.0f),       
-                               1.0f, 0.1f, 0.02f);                  
-    
-    lightSources.addPointLight(glm::vec3(1.0f, 1.0f, -8.0f),       
-                               glm::vec3(1.0f, 1.0f, 1.0f),         
-                               1.0f, 0.1f, 0.02f);                  
+              
     
     lightSources.addSpotLight(glm::vec3(0.0f, 3.0f, 0.0f),         
                               glm::vec3(0.0f, -1.0f, 0.0f),      
@@ -131,6 +125,7 @@ int main( void )
       
     }; 
     basketball.addTexture("../assets/basketball.png","diffuse");
+    basketball.addTexture("../assets/basketball.png", "specular");
     std::vector<Object> objects;
     Object object;
     object.name = "basketball";
@@ -148,8 +143,7 @@ int main( void )
     Model wall("../assets/objfence.obj");
 
 
-    wall.addTexture("../assets/Fence_color.png",
-        "diffuse");
+    wall.addTexture("../assets/Fence_color.png","normal");
 
    
     wall.ka = 0.1f;

@@ -6,13 +6,13 @@
 #include <glm/gtx/io.hpp>
 
 #include <common/maths.hpp>
-// Maths class
+
 class Maths
 {
 
 
 public:
-    // Transformation matrices
+
     static glm::mat4 translate(const glm::vec3& v);
 
     static glm::mat4 scale(const glm::vec3& v);
