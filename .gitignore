@@ -29,6 +29,7 @@
 *.exe
 *.out
 *.app
+.vs/
 
 build_*/
 build/*
