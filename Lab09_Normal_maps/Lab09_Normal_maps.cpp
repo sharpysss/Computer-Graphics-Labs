@@ -117,8 +117,9 @@ int main( void )
                               1.0f, 0.1f, 0.02f,                    
                               std::cos(Maths::radians(45.0f)));     
     
-    lightSources.addDirectionalLight(glm::vec3(1.0f, -1.0f, 0.0f), 
-                                     glm::vec3(1.0f, 1.0f, 0.0f));  
+    lightSources.addDirectionalLight(glm::vec3(1.0f, -1.0f, 0.0f),
+        glm::vec3(1.0f, 1.0f, 1.0f)); 
+
 
     
 
@@ -128,8 +129,8 @@ int main( void )
         glm::vec3(-3.0f, 1.0f, -6.0f),
         
       
-    };
-
+    }; 
+    basketball.addTexture("../assets/basketball.png","diffuse");
     std::vector<Object> objects;
     Object object;
     object.name = "basketball";
@@ -145,12 +146,17 @@ int main( void )
   
    
     Model wall("../assets/objfence.obj");
-    wall.addTexture("../assets/Fence007A_2K-PNG_Displacement.png", "specular");
-    wall.addTexture("../assets/Fence_color.png", "specular");
-    wall.ka = 1.2f;
-    wall.kd = 1.0f;
-    wall.ks = 1.0f;
-    wall.Ns = 20.0f;
+
+
+    wall.addTexture("../assets/Fence_color.png",
+        "diffuse");
+
+   
+    wall.ka = 0.1f;
+    wall.kd = 0.8f;
+    wall.ks = 0.2f;
+    wall.Ns = 16.0f;
+
 
     object.position = glm::vec3(-2.0f,0.5f, -5.0f);
     object.scale = glm::vec3(2.0f, 1.0f, 2.0f);

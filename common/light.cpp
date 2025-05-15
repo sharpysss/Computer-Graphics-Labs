@@ -66,23 +66,21 @@ void Light::draw(unsigned int shaderID, glm::mat4 view, glm::mat4 projection, Mo
     glUseProgram(shaderID);
     for (unsigned int i = 0; i < static_cast<unsigned int>(lightSources.size()); i++)
     {
-        // Ignore directional lights
+       
         if (lightSources[i].type == 3)
             continue;
         
-        // Calculate model matrix
+       
         glm::mat4 translate = glm::translate(glm::mat4(1.0f), lightSources[i].position);
         glm::mat4 scale     = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
         glm::mat4 model     = translate * scale;
         
-        // Send the MVP and MV matrices to the vertex shader
         glm::mat4 MVP = projection * view * model;
         glUniformMatrix4fv(glGetUniformLocation(shaderID, "MVP"), 1, GL_FALSE, &MVP[0][0]);
 
-        // Send model, view, projection matrices and light colour to light shader
+   
         glUniform3fv(glGetUniformLocation(shaderID, "lightColour"), 1, &lightSources[i].colour[0]);
 
-        // Draw light source
         lightModel.draw(shaderID);
     }
 }

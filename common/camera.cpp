@@ -9,13 +9,12 @@ Camera::Camera(const glm::vec3 Eye, const glm::vec3 Target)
 void Camera::calculateMatrices()
 {
 
-    // Calculate camera vectors
+    
     calculateCameraVectors();
 
-    // Calculate the view matrix
+   
     view = glm::lookAt(eye, eye + front, worldUp);
 
-    // Calculate the projection matrix
     projection = glm::perspective(fov, aspect, near, far);
 }
 
