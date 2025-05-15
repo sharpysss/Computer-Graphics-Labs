@@ -1,0 +1,10 @@
+^C:\USERS\22466273\ONEDRIVE - MMU\DOCUMENTS\GITHUB\COMPUTER-GRAPHICS-LABS\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/22466273/OneDrive - MMU/Documents/GitHub/Computer-Graphics-Labs" "-BC:/Users/22466273/OneDrive - MMU/Documents/GitHub/Computer-Graphics-Labs/Buil" --check-stamp-file "C:/Users/22466273/OneDrive - MMU/Documents/GitHub/Computer-Graphics-Labs/Buil/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

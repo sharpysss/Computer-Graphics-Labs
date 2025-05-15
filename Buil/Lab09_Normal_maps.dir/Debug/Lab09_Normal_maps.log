@@ -1,0 +1,3 @@
+﻿  Lab09_Normal_maps.cpp
+C:\Users\22466273\OneDrive - MMU\Documents\GitHub\Computer-Graphics-Labs\Lab09_Normal_maps\Lab09_Normal_maps.cpp(165,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Lab09_Normal_maps.vcxproj -> C:\Users\22466273\OneDrive - MMU\Documents\GitHub\Computer-Graphics-Labs\Buil\Debug\Lab09_Normal_maps.exe

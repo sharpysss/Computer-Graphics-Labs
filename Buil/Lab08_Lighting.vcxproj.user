@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LocalDebuggerEnvironment></LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>C:\Users\22466273\OneDrive - MMU\Documents\GitHub\Computer-Graphics-Labs\Buil\Debug\Lab08_Lighting.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommandArguments></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>C:/Users/22466273/OneDrive - MMU/Documents/GitHub/Computer-Graphics-Labs/Lab08_Lighting/</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerEnvironment></LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>C:\Users\22466273\OneDrive - MMU\Documents\GitHub\Computer-Graphics-Labs\Buil\Release\Lab08_Lighting.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommandArguments></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>C:/Users/22466273/OneDrive - MMU/Documents/GitHub/Computer-Graphics-Labs/Lab08_Lighting/</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <LocalDebuggerEnvironment></LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>C:\Users\22466273\OneDrive - MMU\Documents\GitHub\Computer-Graphics-Labs\Buil\MinSizeRel\Lab08_Lighting.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommandArguments></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>C:/Users/22466273/OneDrive - MMU/Documents/GitHub/Computer-Graphics-Labs/Lab08_Lighting/</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <LocalDebuggerEnvironment></LocalDebuggerEnvironment>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerCommand>C:\Users\22466273\OneDrive - MMU\Documents\GitHub\Computer-Graphics-Labs\Buil\RelWithDebInfo\Lab08_Lighting.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommandArguments></LocalDebuggerCommandArguments>
+    <LocalDebuggerWorkingDirectory>C:/Users/22466273/OneDrive - MMU/Documents/GitHub/Computer-Graphics-Labs/Lab08_Lighting/</LocalDebuggerWorkingDirectory>
+  </PropertyGroup>
+
+</Project>
